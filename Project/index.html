@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<h1>Auto Service "la Vasile"</h1>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<div id="store">
+		<div id="app" v-on:click="seen = !seen">
+		 <button style="float:right">{{ btnText }}</button>
+		</div>
+		<hr style="clear: both">
+		<div v-if="seen" id="hide" style="float:right">
+			<ul>
+					<li v-for="pr in cart">
+						{{pr.product.name}} <u class="price">{{pr.product.price}}</u> &nbsp;&nbsp;&nbsp; <button style="float:right" @click="removeFromcart(product)">x</button>
+					</li>
+				</ul>
+				<hr>
+				<div style="float:right"><b>Total price : {{orderSum}}</b></div>
+		</div>
+		
+		<div>
+		<ul>
+			<li v-for="product in products">
+				{{product.name}} <br>
+				Pret: <u class="price">{{product.price}}</u>
+				<button @click="addToCart(product)" id="add">+</button>
+				<button @click="removeFromcart(product)" id="remove">-</button>
+			</li>
+		</ul>
+	</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
